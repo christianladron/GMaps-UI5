@@ -1,6 +1,6 @@
 
-	jQuery.sap.require('mexbalia.CSI.Location','mexbalia.CSI.Map');
-	mexbalia.CSI.Location.extend("mexbalia.CSI.Marker",{
+	jQuery.sap.require('mexbalia.Maps.Location','mexbalia.Maps.Map');
+	mexbalia.Maps.Location.extend("mexbalia.Maps.Marker",{
 		metadata:{
 			properties:{
 			"map":"object",

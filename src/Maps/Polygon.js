@@ -1,5 +1,5 @@
-	jQuery.sap.require('sap.ui.core.Element','mexbalia.CSI.Map','mexbalia.CSI.Location');
-	sap.ui.core.Element.extend("mexbalia.CSI.Polygon",{
+	jQuery.sap.require('sap.ui.core.Element','mexbalia.Maps.Map','mexbalia.Maps.Location');
+	sap.ui.core.Element.extend("mexbalia.Maps.Polygon",{
 		metadata:{
 			properties:{
 				"map":"object",
@@ -13,7 +13,7 @@
 				"strokeWeight":"float"
 			},
 			aggregations:{
-				"locations":{type:"mexbalia.CSI.Location"}
+				"locations":{type:"mexbalia.Maps.Location"}
 			}
 		},
 		firstDraw: function(){

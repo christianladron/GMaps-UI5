@@ -1,7 +1,7 @@
 
 	jQuery.sap.require('sap.ui.core.Element');
-	jQuery.sap.require('mexbalia.CSI.Map');
-	sap.ui.core.Element.extend("mexbalia.CSI.Location",{
+	jQuery.sap.require('mexbalia.Maps.Map');
+	sap.ui.core.Element.extend("mexbalia.Maps.Location",{
 		metadata:{
 			properties:{
 			"latitude":"string",

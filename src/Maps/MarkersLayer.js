@@ -1,6 +1,6 @@
 
-	jQuery.sap.require('sap.ui.core.Element','mexbalia.CSI.Marker');
-	sap.ui.core.Element.extend("mexbalia.CSI.MarkersLayer",{
+	jQuery.sap.require('sap.ui.core.Element','mexbalia.Maps.Marker');
+	sap.ui.core.Element.extend("mexbalia.Maps.MarkersLayer",{
 		metadata:{
 			properties:{
 				"map":"object",
@@ -9,7 +9,7 @@
 				"title":"string"
 			},
 			aggregations:{
-				"markers":{type:"mexbalia.CSI.Marker"}
+				"markers":{type:"mexbalia.Maps.Marker"}
 			}	
 		},
 		drawMarker: function(index,Marker){

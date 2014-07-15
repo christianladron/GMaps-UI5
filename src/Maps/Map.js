@@ -1,9 +1,9 @@
 
-	jQuery.sap.require('mexbalia.CSI.GMapsLoader','sap.ui.core.Control');
+	jQuery.sap.require('mexbalia.Maps.GMapsLoader','sap.ui.core.Control');
 
 
 
-	sap.ui.core.Control.extend("mexbalia.CSI.Map",{
+	sap.ui.core.Control.extend("mexbalia.Maps.Map",{
 		metadata:{
 			properties:{
 				"zoom":{type:"int",defaultValue:5},
@@ -12,7 +12,7 @@
 				"backgroundColor":"string"
 			}, 
 			aggregations: {
-				"markers":{type:"mexbalia.CSI.Marker"},
+				"markers":{type:"mexbalia.Maps.Marker"},
 				"Layers":{type:"sap.ui.core.Element"},
 			},
 			events:{
@@ -24,7 +24,7 @@
 		},
 		onAfterRendering:function(){
 			if(typeof google === "undefined" || typeof google.maps === "undefined" ){
-				mexbalia.CSI.GMapsLoader.attachEvent('GMapsLoaded-mexbalia',this.firstRendering,this);
+				mexbalia.Maps.GMapsLoader.attachEvent('GMapsLoaded-mexbalia',this.firstRendering,this);
 			}
 			else{
 				this.firstRendering();

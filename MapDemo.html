@@ -23,16 +23,16 @@
 
 	//Loading of modules.
 	jQuery.sap.registerModulePath('mexbalia','src/');
-	jQuery.sap.require('mexbalia.CSI.Polygon');
-	jQuery.sap.require('mexbalia.CSI.MarkersLayer');
+	jQuery.sap.require('mexbalia.Maps.Polygon');
+	jQuery.sap.require('mexbalia.Maps.MarkersLayer');
 	//Creation of the templates for the aggregations in the Layers
-	locationsTemplate = new mexbalia.CSI.Location({latitude:"{Latitude}",longitude:"{Longitude}"});
-	markersTemplate = new mexbalia.CSI.Marker({latitude:"{Latitude}",longitude:"{Longitude}"});
+	locationsTemplate = new mexbalia.Maps.Location({latitude:"{Latitude}",longitude:"{Longitude}"});
+	markersTemplate = new mexbalia.Maps.Marker({latitude:"{Latitude}",longitude:"{Longitude}"});
 	//Creation of the Map
-	Map = new mexbalia.CSI.Map();
+	Map = new mexbalia.Maps.Map();
 	//Creation of the layers Polygon and markersLayer
-	Polygon= new mexbalia.CSI.Polygon({locations:{path:"/Markers",template:locationsTemplate}});
-	markersLayer= new mexbalia.CSI.MarkersLayer({markers:{path:"/Markers",template:markersTemplate}});
+	Polygon= new mexbalia.Maps.Polygon({locations:{path:"/Markers",template:locationsTemplate}});
+	markersLayer= new mexbalia.Maps.MarkersLayer({markers:{path:"/Markers",template:markersTemplate}});
 	//Insertion of the layers into the map
 	Map.insertLayer(markersLayer);
 	Map.insertLayer(Polygon);

@@ -1,6 +1,6 @@
 
-	jQuery.sap.require('sap.ui.core.Element','mexbalia.CSI.Map','mexbalia.CSI.Location'); 
-	sap.ui.core.Element.extend("mexbalia.CSI.HeatMap",{
+	jQuery.sap.require('sap.ui.core.Element','mexbalia.Maps.Map','mexbalia.Maps.Location'); 
+	sap.ui.core.Element.extend("mexbalia.Maps.HeatMap",{
 		metadata:{
 			properties:{
 				"map":"object",
@@ -12,7 +12,7 @@
 				"radius":"float"
 			},
 			aggregations:{
-				"locations":{type:"mexbalia.CSI.Location"}
+				"locations":{type:"mexbalia.Maps.Location"}
 			}
 		},
 		drawLocation: function(index,Location){
