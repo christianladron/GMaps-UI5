@@ -1,5 +1,5 @@
 
-	jQuery.sap.require('mexbalia.CSI.GMapsLoader','sap.ui.core.Control','mexbalia.CSI.Marker','mexbalia.CSI.Location');
+	jQuery.sap.require('mexbalia.CSI.GMapsLoader','sap.ui.core.Control');
 
 
 

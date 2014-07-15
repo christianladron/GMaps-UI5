@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>UI5 custom control for Google Maps</title> 
+
+<script src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap"
+	data-sap-ui-libs="sap.ui.commons,sap.ui.ux3,sap.ui.table"
+	data-sap-ui-theme="sap_goldreflection"
+	data-sap-ui-language="es">
+</script>
+
+<script>
+	//Creation of data for the Model.
+	var LocationsData = {"Markers":[
+		{"Latitude":26.194876675795218,"Longitude":-108.0615234375},
+		{"Latitude":24.246964554300924,"Longitude":-98.1298828125},
+		{"Latitude":21.166483858206583,"Longitude":-97.5146484375},
+		{"Latitude":17.811456088564483,"Longitude":-93.0322265625},
+		{"Latitude":16.80454107638345,"Longitude":-99.755859375},
+		{"Latitude":19.559790136497398,"Longitude":-104.8095703125},
+		{"Latitude":25.284437746983055,"Longitude":-108.45703125}]}
+
+	//Loading of modules.
+	jQuery.sap.registerModulePath('mexbalia','src/');
+	jQuery.sap.require('mexbalia.CSI.Polygon');
+	jQuery.sap.require('mexbalia.CSI.MarkersLayer');
+	//Creation of the templates for the aggregations in the Layers
+	locationsTemplate = new mexbalia.CSI.Location({latitude:"{Latitude}",longitude:"{Longitude}"});
+	markersTemplate = new mexbalia.CSI.Marker({latitude:"{Latitude}",longitude:"{Longitude}"});
+	//Creation of the Map
+	Map = new mexbalia.CSI.Map();
+	//Creation of the layers Polygon and markersLayer
+	Polygon= new mexbalia.CSI.Polygon({locations:{path:"/Markers",template:locationsTemplate}});
+	markersLayer= new mexbalia.CSI.MarkersLayer({markers:{path:"/Markers",template:markersTemplate}});
+	//Insertion of the layers into the map
+	Map.insertLayer(markersLayer);
+	Map.insertLayer(Polygon);
+	//Setting of the model and placing in the <div> element
+	Modelo = new sap.ui.model.json.JSONModel();
+	Modelo.setData(LocationsData);
+	Map.setModel(Modelo);
+	Map.placeAt("map-canvas");
+
+	//Creation and insertion of the table
+	oTable = new sap.ui.table.Table({title:"Markers coordinates"});
+	oTable.addColumn(new sap.ui.table.Column({
+		label: new sap.ui.commons.Label({text: "Longitude"}),
+		template: new sap.ui.commons.TextField().bindProperty("value", "Longitude")
+		}));
+	oTable.addColumn(new sap.ui.table.Column({
+		label: new sap.ui.commons.Label({text: "Latitude"}),
+		template: new sap.ui.commons.TextField().bindProperty("value", "Latitude")
+		}));
+	oTable.setModel(Modelo);
+	oTable.bindRows("/Markers");
+	oTable.placeAt("map-table");
+</script>
+
+<style>
+html, body{
+	height:100%;
+	width:100%;
+}
+
+#map-canvas{
+	height:100%;
+	float:left;
+	width:70%;
+}
+#map-table{
+	float:right;
+	height:100%;
+	width:30%;
+}
+</style>
+</head>
+
+
+<body class="sapUiBody" role="application">
+
+<div id="map-canvas"></div>
+<div id="map-table"></div>
+
+</body>
+</html>
