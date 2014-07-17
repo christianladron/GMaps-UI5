@@ -9,7 +9,9 @@
 				"zoom":{type:"int",defaultValue:5},
 				"center":{type:"object",defaultValue:{latitude:22.804899,longitude:-102.488591}},
 				"map":"object",
-				"backgroundColor":"string"
+				"backgroundColor":"string",
+				"width":"sap.ui.core.CSSSize",
+				"height":"sap.ui.core.CSSSize"
 			}, 
 			aggregations: {
 				"markers":{type:"mexbalia.Maps.Marker"},
@@ -20,7 +22,7 @@
 			}
 		},
 		renderer:function(oRm,oControl){
-			oRm.write("<div id=\"mapa"+oControl.getId()+"\" style=\"height:100%;width:100%;\"> </div>");
+			oRm.write("<div id=\"mapa"+oControl.getId()+"\" style=\"height:"+ oControl.getHeight() +";width:"+ oControl.getWidth() +";\"> </div>");
 		},
 		onAfterRendering:function(){
 			if(typeof google === "undefined" || typeof google.maps === "undefined" ){

@@ -29,7 +29,7 @@
 	locationsTemplate = new mexbalia.Maps.Location({latitude:"{Latitude}",longitude:"{Longitude}"});
 	markersTemplate = new mexbalia.Maps.Marker({latitude:"{Latitude}",longitude:"{Longitude}"});
 	//Creation of the Map
-	oMap = new mexbalia.Maps.Map();
+	oMap = new mexbalia.Maps.Map({width:"100%",height:"100%"});
 	//Creation of the layers Polygon and markersLayer
 	Polygon= new mexbalia.Maps.Polygon({locations:{path:"/Markers",template:locationsTemplate}});
 	markersLayer= new mexbalia.Maps.MarkersLayer({markers:{path:"/Markers",template:markersTemplate}});
@@ -66,10 +66,11 @@ html, body{
 #map-canvas{
 	height:100%;
 	float:left;
-	width:70%;
+	width:100%;
 }
 #map-table{
-	float:right;
+	position:absolute;
+	margin-left:70%;
 	height:100%;
 	width:30%;
 }
