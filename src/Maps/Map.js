@@ -22,7 +22,9 @@
 			}
 		},
 		renderer:function(oRm,oControl){
-			oRm.write("<div id=\"mapa"+oControl.getId()+"\" style=\"height:"+ oControl.getHeight() +";width:"+ oControl.getWidth() +";\"> </div>");
+			oRm.write("<div id=\"mapa"+oControl.getId()+"\" style=\"height:"+ "100%" +";width:"+ "100%" +";\"> </div>");
+			jQuery(oControl.getUIArea().getRootNode()).width(oControl.getWidth());
+			jQuery(oControl.getUIArea().getRootNode()).height(oControl.getHeight());
 		},
 		onAfterRendering:function(){
 			if(typeof google === "undefined" || typeof google.maps === "undefined" ){
