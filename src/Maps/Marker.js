@@ -35,8 +35,9 @@
 				this.genLocation();
 				Marker = new google.maps.Marker({position:this.getLocation(),map:Map,title:this.getTitle(),animation:this.getAnimation(),clickable:this.getClickable(),icon:this.getIcon()});
 				this.setMarker(Marker);
-				me = this;
-		google.maps.event.addListener(this.getMarker(), 'click',function() {me.fireClick();});
+				var me = this;
+				console.log(this);
+		google.maps.event.addListener(this.getMarker(), 'click',function(){me.fireClick();});
 		},
 		draw: function() {
 			var Marker = this.getMarker();
