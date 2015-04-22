@@ -18,7 +18,7 @@
 		metadata:{
 			properties:{
 				"map":"object",
-				"Polygon":"object",
+				"polygon":"object",
 				"locationsArray":{type:"object[]",defaultValue:[]},
 				"clickable":"boolean",
 				"fillColor":"string",
@@ -53,6 +53,6 @@
 		},
 		exit: function() {
 			this.getPolygon().setMap(null);
-		}
+		} 
 
 	});

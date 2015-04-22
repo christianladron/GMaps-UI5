@@ -22,13 +22,25 @@
 			"latitude":"string",
 			"longitude":"string",
 			"location":"object",
+			"wktLocation":"string"
 			}
 		},
 		genLocation: function() {
 			var Loc = this.getLocation();
 			if (typeof Loc === "undefined" || Loc.lat() != this.getLatitude || Loc.lng() != this.getLongitude()){
+				if (typeof this.getWktLocation() === "undefined"){
 				var Loc = new google.maps.LatLng(this.getLatitude(),this.getLongitude());
+				}
+				else{
+					wkt_conv.read(this.getWktLocation());
+					var Loc = wkt_conv.toObject().getPosition();
+					this.setLatitude(Loc.lat());
+					this.setLongitude(Loc.lng());
+				}
 				this.setLocation(Loc);
+			}
+			if (typeof Loc === "undefined"){
+				throw "Location can't be created, information not avaliable";
 			}
 		}
 	});

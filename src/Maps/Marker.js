@@ -22,15 +22,21 @@
 			"marker":"object",
 			"animation":"object",
 			"clickable":"boolean",
-			"title":"string"
+			"title":"string",
+			"icon":"string"
+			},
+			events:{
+				"click":{}
 			}
 		},
 		firstDraw: function() {
 				var Map = this.getParent().getMap();
 				this.setMap(Map);
 				this.genLocation();
-				Marker = new google.maps.Marker({position:this.getLocation(),map:Map,title:this.getTitle(),animation:this.getAnimation(),clickable:this.getClickable()});
+				Marker = new google.maps.Marker({position:this.getLocation(),map:Map,title:this.getTitle(),animation:this.getAnimation(),clickable:this.getClickable(),icon:this.getIcon()});
 				this.setMarker(Marker);
+				me = this;
+		google.maps.event.addListener(this.getMarker(), 'click',function() {me.fireClick();});
 		},
 		draw: function() {
 			var Marker = this.getMarker();
