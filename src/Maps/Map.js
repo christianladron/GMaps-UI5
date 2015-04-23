@@ -33,7 +33,8 @@
 				"Layers":{type:"sap.ui.core.Element"},
 			},
 			events:{
-				"MapCreated":{}
+				"MapCreated":{},
+				"MapIdle":{}
 			}
 		},
 		renderer:function(oRm,oControl){
@@ -61,6 +62,8 @@
 			var map = new google.maps.Map(this.getDomRef(), mapOptions);
 			this.setMap(map);
 			this.fireMapCreated();
+			var me = this;
+			google.maps.event.addListenerOnce(map, 'idle', function(event){me.fireMapIdle(event);});
 		},
 		drawLayers:function(){
 			var Layers = this.getLayers();
