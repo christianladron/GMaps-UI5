@@ -29,6 +29,9 @@
 			},
 			aggregations:{
 				"locations":{type:"mexbalia.Maps.Location"}
+			},
+			events:{
+				"nextDraw":{}
 			}
 		},
 		firstDraw: function(){
@@ -50,6 +53,7 @@
 			var Polygon = this.getPolygon();
 			Polygon.setPath(LocationsArray);
 			this.setPolygon(Polygon);
+			this.fireNextDraw();
 		},
 		exit: function() {
 			this.getPolygon().setMap(null);
