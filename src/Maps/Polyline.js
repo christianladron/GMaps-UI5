@@ -54,7 +54,15 @@
 		},
 		exit: function() {
 			this.getPolyline().setMap(null);
+		},
+		setPolylineProperty:function(property, value){
+			if (property in this.getMetadata().getProperties())
+				{
+					this.setProperty(property,value);
+				}
+			this.getPolyline().set(property,value);
 		}
+
 
 
 	});

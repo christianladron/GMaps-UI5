@@ -25,7 +25,11 @@
 			},
 			aggregations:{
 				"markers":{type:"mexbalia.Maps.Marker"}
-			}	
+			},
+			events:{
+				"nextDraw":{}
+			}
+
 		},
 		drawMarker: function(index,Marker){
 				var Map = this.getParent().getMap();
@@ -38,5 +42,6 @@
 			}
 			var Markers = this.getMarkers();
 			jQuery.each(Markers,this.drawMarker);
+			this.fireNextDraw();
 		}
 	});

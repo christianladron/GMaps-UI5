@@ -36,7 +36,15 @@
 		},
 		firstDraw: function(){
 				this.setMap(this.getParent().getMap());
-				Polygon = new google.maps.Polygon({map:this.getMap()});
+				Polygon = new google.maps.Polygon({
+					map:this.getMap(),
+					fillColor:this.getFillColor(),
+					fillOpacity:this.getFillOpacity(),
+					strokeColor:this.getStrokeColor(),
+					strokeOpacity:this.getStrokeOpacity(),
+					strokeWeight:this.getStrokeWeight(),
+					clickable:this.getClickable()
+				});
 				this.setPolygon(Polygon);
 		},
 		draw: function(){
@@ -57,6 +65,13 @@
 		},
 		exit: function() {
 			this.getPolygon().setMap(null);
-		} 
+		},
+		setPolygonProperty:function(property, value){
+			if (property in this.getMetadata().getProperties())
+				{
+					this.setProperty(property,value);
+				}
+			this.getPolygon().set(property,value);
+		}
 
 	});
