@@ -38,7 +38,6 @@
 				Marker = new google.maps.Marker({position:this.getLocation(),map:Map,title:this.getTitle(),animation:this.getAnimation(),clickable:this.getClickable(),icon:this.getIcon(),draggable:this.getDraggable()});
 				this.setMarker(Marker);
 				var me = this;
-				console.log(this);
 		google.maps.event.addListener(this.getMarker(), 'click',function(event){me.fireClick(event);});
 		google.maps.event.addListener(this.getMarker(), 'dragend',function(event){me.fireDragEnd(event);});
 		},
