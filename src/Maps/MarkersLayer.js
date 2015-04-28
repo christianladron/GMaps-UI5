@@ -21,7 +21,8 @@
 				"map":"object",
 				"animation":"object",
 				"clickable":"boolean",
-				"title":"string"
+				"title":"string",
+				"visible":{type:"boolean",defaultValue:true}
 			},
 			aggregations:{
 				"markers":{type:"mexbalia.Maps.Marker"}
@@ -36,12 +37,31 @@
 				Marker.setMap(Map);
 				Marker.draw();
 		},
+		disappear: function(){
+				var Markers = this.getMarkers();
+				var dissapear = function(index,Marker){
+					Marker.getMarker().setMap(null);
+				}
+				jQuery.each(Markers,dissapear);
+				this.setVisible(false);
+		},
+		appear: function(){
+				var Markers = this.getMarkers();
+				var apear = function(index,Marker){
+					Marker.getMarker().setMap(this.getMap());
+				}
+				this.setVisible(true);
+				this.draw();
+				jQuery.each(Markers,apear);
+		},
 		draw:function(){
 			if(!this.getMap()){
 				this.setMap(this.getParent().getMap());
 			}
 			var Markers = this.getMarkers();
-			jQuery.each(Markers,this.drawMarker);
+			if(this.getVisible()){
+				jQuery.each(Markers,this.drawMarker);
+			}
 			this.fireNextDraw();
 		}
 	});

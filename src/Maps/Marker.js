@@ -53,7 +53,11 @@
 
 		},
 		exit: function(){
+			if(this.getMarker()){
 			this.getMarker().setMap(null);
+			delete this.getMarker();
+			console.log(this);
+			}
 		}
 
 	});

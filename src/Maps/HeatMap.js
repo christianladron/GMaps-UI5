@@ -56,6 +56,12 @@
 				this.setHeatMap(HeatMap);
 			}
 		},
+		disappear: function(){
+			this.getHeatMap().setMap(null);
+		},
+		appear: function(){
+			this.getHeatMap().setMap(this.getMap());
+		},
 		exit: function() {
 			this.getHeatMap().setMap(null);
 		}
