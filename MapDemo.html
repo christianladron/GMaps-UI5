@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>UI5 custom control for Google Maps</title> 
+<title>UI5 custom control for Google Maps</title>
 
 <script src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
 	id="sap-ui-bootstrap"
@@ -26,6 +26,7 @@
 	jQuery.sap.registerModulePath('mexbalia','src/');
 	jQuery.sap.require('mexbalia.Maps.Polygon');
 	jQuery.sap.require('mexbalia.Maps.MarkersLayer');
+	jQuery.sap.require('mexbalia.Maps.TrafficLayer');
 	//Creation of the templates for the aggregations in the Layers
 	locationsTemplate = new mexbalia.Maps.Location({latitude:"{Latitude}",longitude:"{Longitude}"});
 	markersTemplate = new mexbalia.Maps.Marker({latitude:"{Latitude}",longitude:"{Longitude}"});
@@ -34,9 +35,11 @@
 	//Creation of the layers Polygon and markersLayer
 	Polygon= new mexbalia.Maps.Polygon({locations:{path:"/Markers",template:locationsTemplate}});
 	markersLayer= new mexbalia.Maps.MarkersLayer({markers:{path:"/Markers",template:markersTemplate}});
+	trafficLayer= new mexbalia.Maps.TrafficLayer();
 	//Insertion of the layers into the map
 	oMap.insertLayer(markersLayer);
 	oMap.insertLayer(Polygon);
+	oMap.insertLayer(trafficLayer);
 	//Setting of the model and placing in the <div> element
 	Modelo = new sap.ui.model.json.JSONModel();
 	Modelo.setData(LocationsData);
