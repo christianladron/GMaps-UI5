@@ -22,7 +22,8 @@
 			"latitude":"string",
 			"longitude":"string",
 			"location":"object",
-			"wktLocation":"string"
+			"wktLocation":"string",
+			"text":"string"
 			}
 		},
 		genLocation: function() {
