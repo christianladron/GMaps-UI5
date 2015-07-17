@@ -63,5 +63,8 @@
 				jQuery.each(Markers,this.drawMarker);
 			}
 			this.fireNextDraw();
+		},
+		exit: function(){
+			console.log("Soy markerlayer y muero");
 		}
 	});

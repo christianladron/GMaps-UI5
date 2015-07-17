@@ -27,14 +27,17 @@
 				"backgroundColor":"string",
 				"width":"sap.ui.core.CSSSize",
 				"height":"sap.ui.core.CSSSize"
-			}, 
+			},
 			aggregations: {
 				"markers":{type:"mexbalia.Maps.Marker"},
 				"Layers":{type:"sap.ui.core.Element"},
+				"uiLayers":{type:"sap.ui.core.Element"}
 			},
 			events:{
 				"MapCreated":{},
-				"MapIdle":{}
+				"MapIdle":{},
+				"dblClick":{},
+				"click":{}
 			}
 		},
 		renderer:function(oRm,oControl){
@@ -61,6 +64,7 @@
 			};
 			var map = new google.maps.Map(this.getDomRef(), mapOptions);
 			this.setMap(map);
+		google.maps.event.addListener(this.getMap(), 'click',function(event){me.fireClick(event);});
 			this.fireMapCreated();
 			var me = this;
 			google.maps.event.addListenerOnce(map, 'idle', function(event){me.fireMapIdle(event);});
