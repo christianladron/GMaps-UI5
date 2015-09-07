@@ -39,7 +39,11 @@
 				this.setMarker(Marker);
 				var me = this;
 		google.maps.event.addListener(this.getMarker(), 'click',function(event){me.fireClick(event);});
-		google.maps.event.addListener(this.getMarker(), 'dragend',function(event){me.fireDragEnd(event);});
+		google.maps.event.addListener(this.getMarker(), 'dragend',function(event){
+			me.fireDragEnd(event);
+			me.setLatitude(event.latLng.lat());
+			me.setLongitude(event.latLng.lng());
+		});
 		},
 		draw: function() {
 			var Marker = this.getMarker();
