@@ -29,7 +29,7 @@
 	jQuery.sap.require('mexbalia.Maps.TrafficLayer');
 	//Creation of the templates for the aggregations in the Layers
 	locationsTemplate = new mexbalia.Maps.Location({latitude:"{Latitude}",longitude:"{Longitude}"});
-	markersTemplate = new mexbalia.Maps.Marker({latitude:"{Latitude}",longitude:"{Longitude}",click:function(a){console.log("A");}});
+	markersTemplate = new mexbalia.Maps.Marker({latitude:"{Latitude}",longitude:"{Longitude}",click:function(a){console.log("A");},draggable:true});
 	//Creation of the Map
 	oMap = new mexbalia.Maps.Map({width:"100%",height:"100%"});
 	//Creation of the layers Polygon and markersLayer
