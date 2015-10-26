@@ -28,7 +28,7 @@
 		},
 		genLocation: function() {
 			var Loc = this.getLocation();
-			if (typeof Loc === "undefined" || Loc.lat() != this.getLatitude || Loc.lng() != this.getLongitude()){
+			if (typeof Loc === "undefined" || Loc.lat() != this.getLatitude() || Loc.lng() != this.getLongitude()){
 				if (typeof this.getWktLocation() === "undefined"){
 				var Loc = new google.maps.LatLng(this.getLatitude(),this.getLongitude());
 				}
