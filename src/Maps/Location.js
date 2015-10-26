@@ -22,12 +22,13 @@
 			"latitude":"string",
 			"longitude":"string",
 			"location":"object",
-			"wktLocation":"string"
+			"wktLocation":"string",
+			"text":"string"
 			}
 		},
 		genLocation: function() {
 			var Loc = this.getLocation();
-			if (typeof Loc === "undefined" || Loc.lat() != this.getLatitude() || Loc.lng() != this.getLongitude()){
+			if (typeof Loc === "undefined" || Math.abs(Loc.lat() - this.getLatitude()) > 1e-9 || Math.abs(Loc.lng() - this.getLongitude())> 1e-9){
 				if (typeof this.getWktLocation() === "undefined"){
 				var Loc = new google.maps.LatLng(this.getLatitude(),this.getLongitude());
 				}
