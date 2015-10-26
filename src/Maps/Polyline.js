@@ -54,7 +54,6 @@
 		},
 		exit: function() {
 			this.getPolyline().setMap(null);
-			console.log("Soy polilinea y muero");
 		},
 		setPolylineProperty:function(property, value){
 			if (property in this.getMetadata().getProperties())

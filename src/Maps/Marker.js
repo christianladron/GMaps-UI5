@@ -32,6 +32,8 @@
 			}
 		},
 		firstDraw: function() {
+			// jQuery.sap.require("sap.ui.core.IconPool");
+			// jQuery.sap.require("sap.ui.core.Icon");
 				var Map = this.getParent().getMap();
 				this.setMap(Map);
 				this.genLocation();
@@ -39,12 +41,20 @@
 				this.setMarker(Marker);
 				var me = this;
 		google.maps.event.addListener(this.getMarker(), 'click',function(event){me.fireClick(event);});
-		google.maps.event.addListener(this.getMarker(), 'dragend',function(event){
-			me.fireDragEnd(event);
-			me.setLatitude(event.latLng.lat());
-			me.setLongitude(event.latLng.lng());
-		});
+		google.maps.event.addListener(this.getMarker(), 'dragend',function(event){me.fireDragEnd(event);});
+		// this.attachClick(this.infowindow);
 		},
+		// infowindow: function(){
+		// 		var marcador = this.getMarker();
+		// 		window.lol = marcador;
+		// 		var map = this.getMap();
+		// 		//var datos = marcador.getBindingContext().getObject();
+		//
+		// 		var contentString = '<h1>PRueba</h1>';
+		// 		var info = new google.maps.InfoWindow({content:contentString});
+		// 			info.open(map,marcador);
+		// 			console.log("MARCADOR");
+		// },
 		draw: function() {
 			var Marker = this.getMarker();
 			if(!Marker){
@@ -60,7 +70,7 @@
 			if(this.getMarker()){
 			this.getMarker().setMap(null);
 			delete this.getMarker();
-			console.log(this);
+			//console.log(this);
 			}
 		}
 

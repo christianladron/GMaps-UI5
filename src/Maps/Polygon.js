@@ -65,7 +65,6 @@
 		},
 		exit: function() {
 			this.getPolygon().setMap(null);
-			console.log("Soy poligono y muero");
 		},
 		setPolygonProperty:function(property, value){
 			if (property in this.getMetadata().getProperties())

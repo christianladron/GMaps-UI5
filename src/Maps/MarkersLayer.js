@@ -65,6 +65,5 @@
 			this.fireNextDraw();
 		},
 		exit: function(){
-			console.log("Soy markerlayer y muero");
 		}
 	});
